@@ -1,0 +1,17 @@
+on:
+  release:
+    types: [published]
+
+name: Add asset
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: output stuf
+        run: echo ${{ github.event }}
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#        with:
+#          fetch-depth: '0'
+#      - name: Create zip # This would actually build your project, using zip for an example artifact
+#        run: zip -r dhlparcel_shipping.zip dhlparcel_shipping
