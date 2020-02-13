@@ -16,9 +16,11 @@ jobs:
         uses: rymndhng/release-on-push-action@master
         with:
           strategy: minor
+      - name: output upload_url
+        run: echo ${{ steps.create_release.outputs.upload_url }}
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Create zip
         run: zip -r dhlparcel_shipping.zip dhlparcel_shipping
-      - name: output upload_url
+      - name: output upload_url 2
         run: echo ${{ steps.create_release.outputs.upload_url }}
