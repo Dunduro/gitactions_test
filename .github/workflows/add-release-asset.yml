@@ -2,7 +2,7 @@ on:
   release:
     types: [published]
 
-name: Add asset to
+name: Add release asset
 
 jobs:
   build:
@@ -11,7 +11,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Create archive
-        run: git archive --format=zip -o dhlparcel_shipping.zip HEAD
+        run: git archive --format=zip -o asset.zip HEAD
       - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
@@ -19,6 +19,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./dhlparcel_shipping.zip
+          asset_path: ./asset.zip
           asset_name: dhlparcel_shipping.zip
           asset_content_type: application/zip
