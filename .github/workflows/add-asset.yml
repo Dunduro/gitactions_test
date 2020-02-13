@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: output stuf
-        run: echo https://uploads.github.com/repos/${{github.repository}}/releases/${{github.event.GITHUB_REF}}/assets?name=foo.zi
+        run: echo ${{ toJSON(github.event) }}
 #      - name: Checkout code
 #        uses: actions/checkout@v2
 #        with:
