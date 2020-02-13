@@ -3,7 +3,7 @@ on:
     # Sequence of patterns matched against refs/heads
     branches:
       - master
-name: create release
+name: create release and archive asset
 
 jobs:
   build:
@@ -18,6 +18,6 @@ jobs:
           strategy: minor
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
-          git archive --format=zip master -o dhlparcel_shipping.zip
+          zip -r dhlparcel_shipping.zip dhlparcel_shipping
       - name: output upload_url
         run: echo ${{ steps.create_release.outputs.upload_url }}
