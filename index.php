@@ -1,3 +1,3 @@
 <?php
 
-echo 'pizza';
+echo 'pizza2';
