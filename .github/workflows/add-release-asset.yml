@@ -2,19 +2,15 @@ on:
   release:
     types: [published]
 
-name: Add asset
+name: Add asset to
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: output stuf
-        run: echo ${{ toJSON(github.event.release.upload_url) }}
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          fetch-depth: '0'
-      - name: Create zip # This would actually build your project, using zip for an example artifact
+      - name: Create archive
         run: git archive --format=zip -o dhlparcel_shipping.zip HEAD
       - name: Upload Release Asset
         id: upload-release-asset
