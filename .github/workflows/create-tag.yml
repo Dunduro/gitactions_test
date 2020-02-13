@@ -10,11 +10,8 @@ jobs:
       - uses: actions/checkout@master
         with:
           fetch-depth: '0'
-      - name: Create zip
-        run: zip -r dhlparcel_shipping.zip dhlparcel_shipping
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.17.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
-          SOURCE: dhlparcel_shipping.zip
