@@ -8,10 +8,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: output stuf
-        run: echo ${{ github.event }}
+        run: echo https://uploads.github.com/repos/${{github.repository}}/releases/${{github.event.GITHUB_REF}}/assets?name=foo.zi
 #      - name: Checkout code
 #        uses: actions/checkout@v2
 #        with:
 #          fetch-depth: '0'
 #      - name: Create zip # This would actually build your project, using zip for an example artifact
 #        run: zip -r dhlparcel_shipping.zip dhlparcel_shipping
+#
+#
+#      - name: Upload Release Asset
+#        id: upload-release-asset
+#        uses: actions/upload-release-asset@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          upload_url: 'https://uploads.github.com/repos/octocat/Hello-World/releases/1/assets?name=foo.zi'
+#          asset_path: ./dhlparcel_shipping.zip
+#          asset_name: dhlparcel_shipping.zip
+#          asset_content_type: application/zip
